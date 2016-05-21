@@ -1,6 +1,6 @@
 # random-syntax theme
 
-![random-syntax in action](https://f.cloud.github.com/assets/69169/2289498/4c3cb0ec-a009-11e3-8dbd-077ee11741e5.gif)
+![random-syntax in action](https://raw.githubusercontent.com/kdar/random-syntax/master/examples/rRXT2zjeSa.gif)
 
 This is a syntax theme for [Atom](http://atom.io) that provides a Go tool to randomly generate it.
 
