@@ -14,9 +14,11 @@ Just run `go run generate.go` in the random-syntax directory. This will replace 
 `styles/colorsgen.less` file. If you generate a theme you like, you should backup
 that file so you don't overwrite it.
 
-## Notes
+## TODO
 
-I pretty much haphazardly matched the base16 colors generated to other colors already in the theme. It may be worth while to actually making a theme that is designed to take these 16 colors.
+Use a theme that supports base16 colors (such as [github.com/Alchiadus/base16-syntax](github.com/Alchiadus/base16-syntax)).
+
+Instead of using a Go program, make an atom package to generate a theme.
 
 ## Contributing
 
