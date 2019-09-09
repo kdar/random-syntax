@@ -9,7 +9,7 @@ import (
 	"os"
 	"time"
 
-	"github.com/husl-colors/husl-go"
+	"github.com/hsluv/hsluv-go"
 )
 
 func randRange(r1, r2 int) int {
@@ -32,7 +32,7 @@ func huslPalette() []string {
 	darkL := randRange(0, 10)
 	rangeL := 90 - darkL
 	for i := 0; i <= 7; i++ {
-		data = append(data, husl.HuslToHex(float64(H[0]), float64(backS), float64(darkL)+float64(rangeL)*math.Pow(float64(i)/7.0, 1.5)))
+		data = append(data, hsluv.HsluvToHex(float64(H[0]), float64(backS), float64(darkL)+float64(rangeL)*math.Pow(float64(i)/7.0, 1.5)))
 	}
 
 	// 8 Random shades
@@ -44,7 +44,7 @@ func huslPalette() []string {
 		h := H[randRange(0, 5)]
 		s := randRange(minS, maxS)
 		l := randRange(minL, maxL)
-		data = append(data, husl.HuslToHex(float64(h), float64(s), float64(l)))
+		data = append(data, hsluv.HsluvToHex(float64(h), float64(s), float64(l)))
 	}
 
 	return data
