@@ -8,7 +8,6 @@ import (
 	"math/rand"
 	"os"
 	"time"
-
 	"github.com/hsluv/hsluv-go"
 )
 
@@ -17,7 +16,7 @@ func randRange(r1, r2 int) int {
 	return rand.Intn(r2-r1) + r1
 }
 
-func huslPalette() []string {
+func hsluvPalette() []string {
 	var data []string
 
 	// 6 hues to pick from
@@ -51,7 +50,7 @@ func huslPalette() []string {
 }
 
 // func testPalette() []string {
-// 	palette := huslPalette()[:8]
+// 	palette := hsluvPalette()[:8]
 // 	// var palette []string
 // 	// base, err := colorful.SoftPaletteEx(8, colorful.SoftPaletteSettings{
 // 	// 	CheckColor: func(l, a, b float64) bool {
@@ -84,7 +83,7 @@ func huslPalette() []string {
 func main() {
 	rand.Seed(time.Now().UnixNano())
 
-	data := huslPalette()
+	data := hsluvPalette()
 	buf := &bytes.Buffer{}
 	for k := 0; k <= 15; k++ {
 		fmt.Fprintf(buf, "@base0%X: %s;\n", k, data[k])
