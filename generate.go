@@ -8,8 +8,7 @@ import (
 	"math/rand"
 	"os"
 	"time"
-
-	"github.com/husl-colors/husl-go"
+	"github.com/hsluv/hsluv-go"
 )
 
 func randRange(r1, r2 int) int {
@@ -17,7 +16,7 @@ func randRange(r1, r2 int) int {
 	return rand.Intn(r2-r1) + r1
 }
 
-func huslPalette() []string {
+func hsluvPalette() []string {
 	var data []string
 
 	// 6 hues to pick from
@@ -32,7 +31,7 @@ func huslPalette() []string {
 	darkL := randRange(0, 10)
 	rangeL := 90 - darkL
 	for i := 0; i <= 7; i++ {
-		data = append(data, husl.HuslToHex(float64(H[0]), float64(backS), float64(darkL)+float64(rangeL)*math.Pow(float64(i)/7.0, 1.5)))
+		data = append(data, hsluv.HsluvToHex(float64(H[0]), float64(backS), float64(darkL)+float64(rangeL)*math.Pow(float64(i)/7.0, 1.5)))
 	}
 
 	// 8 Random shades
@@ -44,14 +43,14 @@ func huslPalette() []string {
 		h := H[randRange(0, 5)]
 		s := randRange(minS, maxS)
 		l := randRange(minL, maxL)
-		data = append(data, husl.HuslToHex(float64(h), float64(s), float64(l)))
+		data = append(data, hsluv.HsluvToHex(float64(h), float64(s), float64(l)))
 	}
 
 	return data
 }
 
 // func testPalette() []string {
-// 	palette := huslPalette()[:8]
+// 	palette := hsluvPalette()[:8]
 // 	// var palette []string
 // 	// base, err := colorful.SoftPaletteEx(8, colorful.SoftPaletteSettings{
 // 	// 	CheckColor: func(l, a, b float64) bool {
@@ -84,7 +83,7 @@ func huslPalette() []string {
 func main() {
 	rand.Seed(time.Now().UnixNano())
 
-	data := huslPalette()
+	data := hsluvPalette()
 	buf := &bytes.Buffer{}
 	for k := 0; k <= 15; k++ {
 		fmt.Fprintf(buf, "@base0%X: %s;\n", k, data[k])

@@ -10,9 +10,12 @@ Base theme files were taken from [Monokai](https://github.com/kevinsawicki/monok
 
 ## Usage
 
-Just run `go run generate.go` in the random-syntax directory. This will replace the
-`styles/colorsgen.less` file. If you generate a theme you like, you should backup
-that file so you don't overwrite it.
+Run `go get github.com/hsluv/hsluv-go` once to import the color library. 
+
+Then, just run `go run generate.go` in the random-syntax directory whenever you want a new theme. 
+This will replace the `styles/colorsgen.less` file. 
+
+If you generate a theme you like, you should backup that file so you don't overwrite it.
 
 ## TODO
 
